@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+<style>
+    .main{
+        margin: 2rem;
+    }
+</style>
+</head>
+
+<body>
+<div class="main">
+    <div class="total money">
+        <input type="number" placeholder="Total Money" id="totalmoney">
+        <button id="addbtn">ADD</button>
+    </div>
+    <div class="kharcha">
+        <input type="text" placeholder="kharcha naam" id="kharchaname">
+        <input type="number" placeholder="kharacha kitta" id="kharchamoney">
+        <button id="spendbtn">SPEND</button>
+    </div>
+</div>
+<div id="result">
+<p>Total: <span id="span1"></span></p>
+<!-- <p>karcha naam: <span id="span2"></span></p>
+<p> karcha kitta: <span id="span3"></span></p> -->
+</div>
+
+<script>
+    let totalmoney = document.querySelector("#totalmoney");
+    let addbtn = document.querySelector("#addbtn");
+    let kharchaname = document.querySelector("#kharchaname");
+    let kharchamoney = document.querySelector("#kharchamoney");
+    let spendbtn = document.querySelector("#spendbtn");
+    let span1 = document.querySelector("#span1");
+    let span2 = document.querySelector("#span2");
+    let span3 = document.querySelector("#span3");
+    let result = document.querySelector("#result");
+
+    let spendvalue=0
+
+    addbtn.addEventListener("click", function() {
+        span1.innerHTML = totalmoney.value;
+    });
+
+    spendbtn.addEventListener("click", function() {
+
+        let para1=document.createElement("p")
+        let para2=document.createElement("p")
+        let remain=document.createElement("p")
+
+
+
+        if (Number(totalmoney.value) < Number(kharchamoney.value)) {
+            alert("ab tu dhek me tuje terer aukat dhikatha huu");
+        } else {
+            // span2.innerHTML = kharchaname.value;
+            // span3.innerHTML = kharchamoney.value;
+            // totalmoney.value = Number(totalmoney.value) - Number(kharchamoney.value); 
+            para1.innerHTML="kharcha name:"+kharchaname.value
+            para2.innerHTML="kharcha money:"+kharchamoney.value
+            spendvalue=Number(kharchamoney.value)+Number(spendvalue)
+              console.log(spendvalue)
+
+          remain.innerHTML=Number(totalmoney.value)-Number(spendvalue)
+            console.log( remain)
+
+            result.append(para1)
+            result.append(para2)
+            result.append(remain)
+
+
+
+
+        }
+    });
+        
+    
+</script>
+
+</body>
+</html>
